@@ -1,6 +1,18 @@
 // 1. Import Express
 import express from "express";
 
+//6. importing from dotenv
+import dotenv from "dotenv";
+
+// 7. Load environment variables from .env
+dotenv.config();
+
+//8. Access the API key
+const apiKey = process.env.OMDB_API_KEY;
+
+// 9. Verify that the API key is loaded (without displaying it)
+console.log("OMDb API Key loaded:", Boolean(apiKey));
+
 // 2. Create an Express application
 const app = express();
 
