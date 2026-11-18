@@ -86,6 +86,33 @@ While working on this project, I faced a few challenges:
 3. Understanding Query Parameters and Path Parameters: I had to understand the difference between req.query and req.params. I learned that I use req.query.title to get the movie title from the search URL and req.params.id to get the IMDb ID from the URL.
 4. Working with Axios and OMDb: I learned how to make GET requests using Axios and pass the required parameters to the OMDb API. I also learned that OMDb can return a response with "Response": "False" even when the HTTP request itself is successful, so I added additional error handling.
 
+## Final Testing Checklist
+
+The following scenarios were used to test the API:
+
+**1. Movie Search**
+- Input: `/api/search?title=batman`
+- Expected: Returns movie search results.
+
+**2. Missing Movie Title**
+- Input: `/api/search`
+- Expected: Returns 400 – Bad Request.
+
+**3. Movie Not Found**
+- Input: `/api/search?title=xyzrandommovie123`
+- Expected: Returns 404 – Not Found.
+
+**4. Movie Details**
+- Input: `/api/movies/tt0372784`
+- Expected: Returns Batman Begins details.
+
+**5. Invalid IMDb ID**
+- Input: `/api/movies/invalid123`
+- Expected: Returns 404 – Not Found.
+
+**6. Server Error Handling**
+- Expected: Returns 500 – Internal Server Error for unexpected server or API request errors.
+
 ## Additional Improvements
 
 - Configured Nodemon for automatic server restarts during development.
