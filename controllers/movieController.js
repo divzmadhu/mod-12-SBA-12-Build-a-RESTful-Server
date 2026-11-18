@@ -92,11 +92,6 @@ const getMovieDetails = async (req, res) => {
 
 };
 
-// // 7. Export the controller function
-// export { searchMovies };
-
-// //13. Export the controller function
-// export { getMovieDetails };
 
 // 13. Export both controller functions
 export { searchMovies, getMovieDetails };
