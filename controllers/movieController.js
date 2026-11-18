@@ -23,6 +23,13 @@ const searchMovies = async (req, res) => {
             }
         });
 
+        // Check whether OMDb returned an error
+        if (response.data.Response === "False") {
+            return res.status(404).json({
+                error: response.data.Error
+            });
+        }
+
         // 6. Send the movie data back to the client
         res.json(response.data);
 
@@ -60,7 +67,14 @@ const getMovieDetails = async (req, res) => {
             }
         });
 
-       // 12. Send the movie details back to the client
+        // Check whether OMDb returned an error
+        if (response.data.Response === "False") {
+            return res.status(404).json({
+                error: response.data.Error
+            });
+        }
+
+        // 12. Send the movie details back to the client
         res.json(response.data);
 
 
